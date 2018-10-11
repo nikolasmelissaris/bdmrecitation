@@ -1,1 +1,0 @@
-# bdmrecitation.github.io
