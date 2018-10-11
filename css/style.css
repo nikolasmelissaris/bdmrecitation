@@ -89,6 +89,11 @@ section div {
 strong {
     color: #DB7093;
 }
+
+code {
+    font-family: monospace;
+}
+
 .credits-info {
     position: fixed;
     bottom: 0;
