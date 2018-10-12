@@ -5,6 +5,12 @@ body {
     line-height: 1.44;
 }
 
+ul.b {
+    margin: 15px 0 15px 15px;
+    padding: 0;
+    list-style: circle;
+}
+
 ul {
     margin: 15px 0 15px 15px;
     padding: 0;
