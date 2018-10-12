@@ -4,6 +4,11 @@ body {
     font-size: 18px;
     line-height: 1.44;
 }
+
+#demobox {
+  background-color: #cfc ;
+}
+
 pre.bash {
  background-color: black;
  color: grey;
