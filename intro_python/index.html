@@ -57,27 +57,36 @@
 			on the first screen, check the <code>Add Python 3.x to PATH</code> option and install. This will let you
 			use python in your terminal. Then click the <code>Disable path length limit</code> 
 			option to will allow Python to use long path names. If after the installation you type 
-		<<pre class="bash">Niks-MBPro-:~ Nik$ python3</pre> in the
-		 terminal and still get an error then you will have to configure this manually. There is a good answer at 
+		<pre class="bash">$ python</pre> in the
+		 terminal and still get an error then you will have to configure this manually. There are good answers 
+		<a href="https://wsvincent.com/install-python3-windows/">here</a> (using PowerShell), at 
 			<a href="https://superuser.com/questions/143119/how-do-i-add-python-to-the-windows-path">Superuser</a>
-				 (be careful no to copy-paste mindlessly what you find on the Internet) and 
+				 (be careful no to copy-paste mindlessly what you find on the Internet), and 
 			<a href="https://docs.python.org/3.3/using/windows.html#finding-the-python-executable">docs</a>.</p>
 		
 		<h4>Checking if things work</h4>
 		<p>Mac users should be able to access interactive mode by just typing 
-		<pre class="bash">Niks-MBPro-:~ Nik$ python3</pre>
+		<pre class="bash">$ python3</pre>
 		and you should see something like:
-		<pre class="bash">Niks-MBPro-:~ Nik$ python3
+		<pre class="bash">$ python3
 Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
 [Clang 6.0 (clang-600.0.57)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>></pre> </p>
 		
 		<p>Alternatively you can check which version of python you have installed by typing:
-			<pre class="bash">Niks-MBPro-:~ Nik$ python3 -V</pre>
+			<pre class="bash">$ python3 -V</pre>
 		which should return something like the following:
-		<pre class="bash">niks-MBPro-:~ nik$ python3 -V
-Python 3.7.0</pre>
+		<pre class="bash">$ python3 -V
+Python 3.7.0</pre> </p>
+		
+		<p>On <strong>Windows</strong> you can type:
+		<pre class="bash">C:\> python -V</pre>
+		which should give you the version of <code>python</code> that you are using.
+		If you see something like:
+		<pre class="bash">'python' is not recognized as an internal or external command, operable program or batch file.</pre>
+		Then you need to follow the instructions in the above section to set up your environment properly.</p>
+
 		
 		
 		<h4>PyCharm and other editors</h4>
