@@ -4,6 +4,13 @@ body {
     font-size: 18px;
     line-height: 1.44;
 }
+pre.bash {
+ background-color: black;
+ color: grey;
+ font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,
+     Bitstream Vera Sans Mono,Courier New, monospace;
+}
+
 ul {
     margin: 15px 0 15px 160px;
     padding: 0;
