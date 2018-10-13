@@ -9,7 +9,7 @@ body {
   background-color: #cfc;
 }
 
-body > section > div > pre.bash > p {
+div > pre.bash > p {
  background-color: #cfc;
  color: red;
  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,
