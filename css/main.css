@@ -11,7 +11,7 @@ body {
 
 pre.bash {
  background-color: #cfc;
- color: grey;
+ color: red;
  font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,
      Bitstream Vera Sans Mono,Courier New, monospace;
 }
