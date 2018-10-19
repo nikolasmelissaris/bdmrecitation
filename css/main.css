@@ -5,6 +5,10 @@ body {
     line-height: 1.44;
 }
 
+small {
+    font-size: x-small;
+}
+
 .demobox {
   background-color: #cfc;
 }
