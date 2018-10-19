@@ -41,94 +41,16 @@
 
         <section><div>
           
-		<strong><h2>October 11 - Intro to Python</h2></strong>
+		<strong><h2>October 17 - Intro to Python (contd.)</h2></strong>
 		
-		<h4>Starting</h4>
-		<p>There is a number of ways that we can do this. The simplest one is having the python intepreter 
-			coupled with a text editor. This can be a bit tricky for people using the Windows 
-			operating system so we will use a 
-			neat IDE called PyCharm. At the end you can find some excellent resources to get you started.
-		
-		<h4>Downloading and installing Python 3 on your computer</h4>
-		<p>If you are using a <strong>Mac</strong> simply head over to the <a href="https://www.python.org/downloads/"> Python website </a> and
-			download the most recent package. Then double-click on the downloaded file to run the Python 3 installer.</p>
-		<p>If you are using <strong>Windows</strong>, download the suitable installer from the
-			<a href="https://www.python.org/downloads/"> Python website </a>. Double-click on the installer and
-			on the first screen, check the <code>Add Python 3.x to PATH</code> option and install. This will let you
-			use python in your terminal. Then click the <code>Disable path length limit</code> 
-			option to will allow Python to use long path names. If after the installation you type:
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">$ python</p></pre> in the
-		 terminal and still get an error then you will have to configure this manually. There are good answers 
-		<a href="https://wsvincent.com/install-python3-windows/">here</a> (using PowerShell), at 
-			<a href="https://superuser.com/questions/143119/how-do-i-add-python-to-the-windows-path">Superuser</a>
-				 (be careful no to copy-paste mindlessly what you find on the Internet), and 
-			<a href="https://docs.python.org/3.3/using/windows.html#finding-the-python-executable">docs</a>.</p>
-		
-		<h4>Checking if things work</h4>
-		<p><strong>Mac</strong> users should be able to access interactive mode by just typing 
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">$ python3</p></pre>
-		and you should see something like:
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">$ python3
-Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
-[Clang 6.0 (clang-600.0.57)] on darwin
-Type "help", "copyright", "credits" or "license" for more 
-information.
->>></pre> </p> </p>
-		
-		<p>Alternatively you can check which version of python you have installed by typing:
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">$ python3 -V</p></pre>
-		which should return something like the following:
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">$ python3 -V
-Python 3.7.0</pre> </p></p>
-		
-		<p>On <strong>Windows</strong> you can type:
-<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">C:\> python -V</p></pre>
-		which should give you the version of <code>python</code> that you are using.
-		If you see something like:
-		<pre class="bash"><p style="background-color:#E8E8E8; color:#003300">'python' is not recognized as an internal or external command, 
-operable program or batch file.</p></pre>
-		then you need to follow the instructions in the above section to set up your environment properly.</p>
-
+		<h4>Class material</h4>
+		<ul>
+			<li><a href="https://nikolasmelissaris.github.io/bdmrecitation/intro_python_1/Intro_Python_0.pdf">
+				Introduction</a></li>
+			<li><a href="https://nikolasmelissaris.github.io/bdmrecitation/intro_python_1/Intro_Python_1.pdf">
+				Conditional Execution</a></li>
 		
 		
-		<h4>PyCharm and other editors</h4>
-		<p>There is a number of good editors that you can use if you don't want to use PyCharm:
-			<ul>
-			<li><a href="https://atom.io/">Atom</a></li>
-			<li><a href="https://notepad-plus-plus.org/">Notepad++</a></li>
-			<li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
-			</ul>
-		As far as PyCharm goes, you can download the free Community version from the 
-		<a href="https://www.jetbrains.com/pycharm/">JetBrains website</a>. It is fine if you want to use
-		any other IDE but this is the one that we'll be mainly using for demonstrating stuff.</p>
-		
-		<p>You can find help installing PyCharm <a href="https://www.jetbrains.com/help/pycharm/install-and-set-up-pycharm.html">
-			here</a>.
-		<p>You may use Jupyter if you are comfortable with it but it will probably be a bit of a hassle
-			later on. I will try and find some good resources for using Jupyter with SQL and I will post them
-			here.</p>
-		
-			
-		<h4>Resources for learning</h4>
-		<p>There are hundreds of books/videos/websites that you can find if you search for "Python for Beginners".
-		Below you can find some of my favorites:
-		<ul class="b">
-			<li><a href="http://openbookproject.net/thinkcs/python/english3e/">Think like a computer scientist</a> is
-				a great book with tons of examples for total beginners.
-			<li><a href="https://python.swaroopch.com/">A byte of Python</a> is an introductory text for people with 
-				no previous programming experience. You should read up to and including control flow.</li>
-			<li><a href="http://hetland.org/writing/instant-hacking.html">Instant Hacking</a> A minimal crash course 
-				that's an excellent starting point. He uses Python 2 though so be careful of the little differences.</li>
-			<li><a href="https://checkio.org/">CheckIO</a> is a gamified website containing programming tasks.</li>
-			<li>The <a href="https://www.python-course.eu/python3_course.php">Python-Course.eu</a> 
-				website has an extensive tutorial for complete beginners.
-			<li>The University of Michigan has a nice class at <a href="https://www.coursera.org/learn/python">
-				Coursera</a>. You can enroll to the course and choose to audit for free.
-		</ul></p>
-			
-		<p><strong>Important:</strong> Be sure that you have configured python properly and that you are able to run
-			just the simplest scripts before the next tutorial. We can't afford to lose time trying to set up
-			machines again.</p>
             </div></section>
 			
 			
