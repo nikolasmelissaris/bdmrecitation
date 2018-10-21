@@ -8,6 +8,12 @@ body {
 small {
     font-size: x-small;
 }
+span.ttytype {
+    color: green;
+    font-family: monospace;
+    font-weight: bold;
+    white-space: nowrap;
+}
 
 body pre {
     overflow-x: auto;
