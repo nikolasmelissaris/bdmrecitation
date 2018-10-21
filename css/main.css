@@ -9,10 +9,6 @@ small {
     font-size: x-small;
 }
 
-.demobox {
-  background-color: #cfc;
-}
-
 body pre {
     overflow-x: auto;
 }
