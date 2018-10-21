@@ -12,6 +12,13 @@ small {
 .demobox {
   background-color: #cfc;
 }
+pre.tty {
+    font-family: monospace;
+    margin: 1pc 4% 0pc 4%;
+    padding: 0.5pc 0.5pc 0.5pc 0.5pc;
+    border: 1px dashed #99aabb;
+    background-color: #f5f5f5;
+}
 
 pre.bash {
  background-color: #cfc;
