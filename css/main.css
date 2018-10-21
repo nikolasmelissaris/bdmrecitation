@@ -12,6 +12,11 @@ small {
 .demobox {
   background-color: #cfc;
 }
+
+body pre {
+    overflow-x: auto;
+}
+
 pre.tty {
     font-family: monospace;
     margin: 1pc 4% 0pc 4%;
