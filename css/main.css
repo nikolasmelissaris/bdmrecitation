@@ -12,6 +12,10 @@ small {
 code {
     color: #010101;
     font-family: monospace;
+    border-radius: 7px;
+    margin: 0pc 0pc 0pc 0pc;
+    padding: 0.1pc 0.2pc 0.2pc 0.2pc;
+    background-color: #f5f5f5;
 }
 
 span.ttytype {
