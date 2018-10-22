@@ -39,6 +39,12 @@ ul {
     padding: 0;
     list-style: none;
 }
+ul.b {
+    margin: 15px 0 15px 15px;
+    padding: 0;
+    list-style: circle;
+}
+
 ul li img {
     float: left;
     padding: 10px 5px;
