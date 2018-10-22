@@ -8,6 +8,12 @@ body {
 small {
     font-size: x-small;
 }
+
+code {
+    color: #010101;
+    font-family: monospace;
+}
+
 span.ttytype {
     color: DarkGreen;
     font-family: monospace;
