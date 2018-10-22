@@ -8,6 +8,16 @@ body {
 small {
     font-size: x-small;
 }
+
+code {
+    color: #010101;
+    font-family: monospace;
+    border-radius: 7px;
+    margin: 0pc 0pc 0pc 0pc;
+    padding: 0.1pc 0.2pc 0.2pc 0.2pc;
+    background-color: #f5f5f5;
+}
+
 span.ttytype {
     color: DarkGreen;
     font-family: monospace;
@@ -35,10 +45,16 @@ pre.bash {
 }
 
 ul {
-    margin: 15px 0 15px 160px;
+    margin: 15px 0 15px 15px;
     padding: 0;
     list-style: none;
 }
+ul.b {
+    margin: 15px 0 15px 15px;
+    padding: 0;
+    list-style: circle;
+}
+
 ul li img {
     float: left;
     padding: 10px 5px;
