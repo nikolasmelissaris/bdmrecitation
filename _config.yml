@@ -1,0 +1,3 @@
+name: Nikolas, Weird Student
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
