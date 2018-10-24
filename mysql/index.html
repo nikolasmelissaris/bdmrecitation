@@ -41,39 +41,43 @@
 
         <section><div>
           
-		<strong><h2>Virtual Machines</h2></strong>
+		<strong><h2>MySQL</h2></strong>
 		
-		<h4>What is a Virtual Machine?</h4>
-		<p>If you are using an Operating System that makes things a bit uncomfortable or if
-			you just want to use a "sandbox" environment where you can do all sorts of tests without the fear 
-			that you will break something on your computer then you can find a Virtual Machine to be
-			extremely useful.</p>
-		<p>Virtual machines (VMs) allow you to run other operating systems within your current OS. 
-			The virtual OS will run as if it’s just another program on your computer.
-			This is ideal for a number of reasons:
-			<ul class="b">
-				<li>Test new versions of operating systems.</li>
-				<li>Experiment with other operating systems.</li>
-				<li>Use software requiring an outdated operating system.</li>
-				<li>Run software designed for another operating system.</li>
-		</ul> </p>
-		<h4>Virtualbox</h4>
-		<p>VirtualBox is a great, open-source application that runs on Windows, macOS, and Linux.  
-			VirtualBox is free, including advanced features like snapshots. 
-			This allows you to save a virtual machine’s state and revert to that state in the future, 
-			which is great for testing.</p>
+		<h4>What is MySQL?</h4>
 		
-		<h4>How to download, install, and configure VirtualBox</h4>
-		<p>To download VirtualBox, simply head over to their <a href"https://www.virtualbox.org/wiki/Downloads">website
-			</a> and click on the appropriate download (meaning what Operating System you have, which is the 
-			host) under <code>VirtualBox 5.2.20 platform packages</code>. 
-			You can find really detailed guides on the Internet depending on what your host OS is and what 
-			guest OS you want to run. For example, if you want to install Linux on a Windows host machine you can 
-			read <a href="https://itsfoss.com/install-linux-in-virtualbox/">this</a> and
-				<a href="https://linus.nci.nih.gov/bdge/installUbuntu.html">this</a> guide.</p>
+		<p>SQL is a language that was specifically designed to make it easy for other programs to access 
+			data through databases. Programs that want the database software to handle the low-level 
+			work of managing data will simply use SQL to give the proper instuctions.</p>
 
-		<p><strong>Important:</strong> This is not necessary to do. It is just a suggestion so that you can experiment
-		with different technologies without worrying that you can break something on your computer.</p> 
+	<p>There are many databases that support the use of SQL to access their data, like MySQL and 
+		PostgreSQL. In other words, MySQL is just the brand of one database software, one of many. 
+		The same goes for PostgreSQL. These two databases are very popular among programs that run on 
+		websites (probably because they are free).
+		</p>
+		
+		<h4>Installing MySQL on macOS</h4>
+		<p>There is a great guide on how to install MySQL on your Mac 
+			<a href="https://medium.com/employbl/how-to-install-mysql-on-mac-osx-5b266cfab3b6">here</a>. 
+			It might be a different since the OS and MySQL versions are a bit older but this shouldn't 
+			pose a problem.</p>
+		
+		<p>Don't forget to add the mysql download to your path so that you can use the <code>mysql</code>
+			command from the command line.
+		If you are using bash for terminal (the default on OS X) you will need either the 
+			<code>~/.bashrc</code> file or <code>~/.bash_profile</code>. </p>
+		<p>Open the file with some text editor and add the following line:
+		<pre class="tty">export PATH=$PATH:/usr/local/mysql/bin</pre>
+		
+		Save it and then use the following command in your terminal:
+		<pre class="tty">$ <span class="ttytype">source ~/.bashrc</span></pre>
+		
+		After this, you can test it as follows:
+		<pre class="tty">$ <span class="ttytype">mysql --version</span>
+mysql  Ver 8.0.13 for macos10.14 on x86_64 (MySQL Community Server - GPL)</pre> </p>
+		
+		<h4>Installing MySQL on Windows</h4>
+		<p>You can find an excellent step-by-step guide <a href="https://www.makeuseof.com/tag/install-mysql-windows/">
+			here.</p>
             </div></section>
 			
 			
