@@ -41,94 +41,39 @@
 
         <section><div>
           
-		<strong><h2>October 11 - Intro to Python</h2></strong>
+		<strong><h2>Virtual Machines</h2></strong>
 		
-		<h4>Starting</h4>
-		<p>There is a number of ways that we can do this. The simplest one is having the python intepreter 
-			coupled with a text editor. This can be a bit tricky for people using the Windows 
-			operating system so we will use a 
-			neat IDE called PyCharm. At the end you can find some excellent resources to get you started.
+		<h4>What is a Virtual Machine?</h4>
+		<p>If you are using an Operating System that makes things a bit uncomfortable or if
+			you just want to use a "sandbox" environment where you can do all sorts of tests without the fear 
+			that you will break something on your computer then you can find a Virtual Machine to be
+			extremely useful.</p>
+		<p>Virtual machines (VMs) allow you to run other operating systems within your current OS. 
+			The virtual OS will run as if it’s just another program on your computer.
+			This is ideal for a number of reasons:
+			<ul class="b">
+				<li>Test new versions of operating systems.</li>
+				<li>Experiment with other operating systems.</li>
+				<li>Use software requiring an outdated operating system.</li>
+				<li>Run software designed for another operating system.</li>
+		</ul> </p>
+		<h4>Virtualbox</h4>
+		<p>VirtualBox is a great, open-source application that runs on Windows, macOS, and Linux.  
+			VirtualBox is free, including advanced features like snapshots. 
+			This allows you to save a virtual machine’s state and revert to that state in the future, 
+			which is great for testing.</p>
 		
-		<h4>Downloading and installing Python 3 on your computer</h4>
-		<p>If you are using a <strong>Mac</strong> simply head over to the <a href="https://www.python.org/downloads/"> Python website </a> and
-			download the most recent package. Then double-click on the downloaded file to run the Python 3 installer.</p>
-		<p>If you are using <strong>Windows</strong>, download the suitable installer from the
-			<a href="https://www.python.org/downloads/"> Python website </a>. Double-click on the installer and
-			on the first screen, check the <code>Add Python 3.x to PATH</code> option and install. This will let you
-			use python in your terminal. Then click the <code>Disable path length limit</code> 
-			option to will allow Python to use long path names. If after the installation you type:
-		<pre class="tty">$ <span class="ttytype">python</span></pre> in the
-		 terminal and still get an error then you will have to configure this manually. There are good answers 
-		<a href="https://wsvincent.com/install-python3-windows/">here</a> (using PowerShell), at 
-			<a href="https://superuser.com/questions/143119/how-do-i-add-python-to-the-windows-path">Superuser</a>
-				 (be careful no to copy-paste mindlessly what you find on the Internet), and 
-			<a href="https://docs.python.org/3.3/using/windows.html#finding-the-python-executable">docs</a>.</p>
-		
-		<h4>Checking if things work</h4>
-		<p><strong>Mac</strong> users should be able to access interactive mode by just typing: 
-			<pre class="tty">$ <span class="ttytype">python3</span></pre>
-		and you should see something like:
-			<pre class="tty">$ <span class="ttytype">python3</span>
-Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 26 2018, 23:26:24)
-[Clang 6.0 (clang-600.0.57)] on darwin
-Type "help", "copyright", "credits" or "license" for more 
-information.
->>></pre> </p>
-		
-		<p>Alternatively you can check which version of python you have installed by:
-<pre class="tty">$ <span class="ttytype">python3 -V </span></pre>
-		which should return something like the following:
-<pre class="tty">$ <span class="ttytype">python3 -V</span>
-Python 3.7.0</pre></p>
-		
-		<p>On <strong>Windows</strong> you can type:
-<pre class="tty">C:\> <span class="ttytype">python -V</span></pre>
-		which should give you the version of <code>python</code> that you are using.
-		If you see something like:
-		<pre class="tty">'python' is not recognized as an internal or external command, 
-operable program or batch file.</pre>
-		then you need to follow the instructions in the above section to set up your environment properly.</p>
+		<h4>How to download, install, and configure VirtualBox</h4>
+		<p>To download VirtualBox, simply head over to their <a href"https://www.virtualbox.org/wiki/Downloads">website
+			</a> and click on the appropriate download (meaning what Operating System you have, which is the 
+			host) under <code>VirtualBox 5.2.20 platform packages</code>. 
+			You can find really detailed guides on the Internet depending on what your host OS is and what 
+			guest OS you want to run. For example, if you want to install Linux on a Windows host machine you can 
+			read <a href="https://itsfoss.com/install-linux-in-virtualbox/">this</a> and
+				<a href="https://linus.nci.nih.gov/bdge/installUbuntu.html">this</a> guide.</p>
 
-		
-		
-		<h4>PyCharm and other editors</h4>
-		<p>There is a number of good editors that you can use if you don't want to use PyCharm:
-			<ul>
-			<li><a href="https://atom.io/">Atom</a></li>
-			<li><a href="https://notepad-plus-plus.org/">Notepad++</a></li>
-			<li><a href="https://www.sublimetext.com/">Sublime Text</a></li>
-			</ul>
-		As far as PyCharm goes, you can download the free Community version from the 
-		<a href="https://www.jetbrains.com/pycharm/">JetBrains website</a>. It is fine if you want to use
-		any other IDE but this is the one that we'll be mainly using for demonstrating stuff.</p>
-		
-		<p>You can find help installing PyCharm <a href="https://www.jetbrains.com/help/pycharm/install-and-set-up-pycharm.html">
-			here</a>.
-		<p>You may use Jupyter if you are comfortable with it but it will probably be a bit of a hassle
-			later on. I will try and find some good resources for using Jupyter with SQL and I will post them
-			here.</p>
-		
-			
-		<h4>Resources for learning</h4>
-		<p>There are hundreds of books/videos/websites that you can find if you search for "Python for Beginners".
-		Below you can find some of my favorites:
-		<ul class="b">
-			<li><a href="http://openbookproject.net/thinkcs/python/english3e/">Think like a computer scientist</a> is
-				a great book with tons of examples for total beginners.
-			<li><a href="https://python.swaroopch.com/">A byte of Python</a> is an introductory text for people with 
-				no previous programming experience. You should read up to and including control flow.</li>
-			<li><a href="http://hetland.org/writing/instant-hacking.html">Instant Hacking</a> A minimal crash course 
-				that's an excellent starting point. He uses Python 2 though so be careful of the little differences.</li>
-			<li><a href="https://checkio.org/">CheckIO</a> is a gamified website containing programming tasks.</li>
-			<li>The <a href="https://www.python-course.eu/python3_course.php">Python-Course.eu</a> 
-				website has an extensive tutorial for complete beginners.
-			<li>The University of Michigan has a nice class at <a href="https://www.coursera.org/learn/python">
-				Coursera</a>. You can enroll to the course and choose to audit for free.
-		</ul></p>
-			
-		<p><strong>Important:</strong> Be sure that you have configured python properly and that you are able to run
-			just the simplest scripts before the next tutorial. We can't afford to lose time trying to set up
-			machines again.</p> 
+		<p><strong>Important:</strong> This is not necessary to do. It is just a suggestion so that you can experiment
+		with different technologies without worrying that you can break something on your computer.</p> 
             </div></section>
 			
 			
