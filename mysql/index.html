@@ -216,11 +216,25 @@ Records: 0  Duplicates: 0  Warnings: 0
 | name   | varchar(150)     | NO   |     | NULL    |                |
 | weapon | varchar(150)     | NO   |     | NULL    |                |
 | gender | char(1)          | YES  |     | NULL    |                |
-| race   | varchar(150)     | YES  |     | NULL    |                |
+| race   | varchar(150)     | NO   |     | NULL    |                |
 +--------+------------------+------+-----+---------+----------------+
 5 rows in set (0.00 sec)</pre></p>
 
-		<h4>Installing MySQL on Windows</h4>
+<p>To delete a column use <code>ALTER TABLE...DROP</code>:
+<pre class="tty">mysql> <span class="ttytype">ALTER TABLE heroes DROP gender;</span>
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> <span class="ttytype">DESCRIBE heroes;</span>
++--------+------------------+------+-----+---------+----------------+
+| Field  | Type             | Null | Key | Default | Extra          |
++--------+------------------+------+-----+---------+----------------+
+| id     | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(150)     | NO   |     | NULL    |                |
+| weapon | varchar(150)     | NO   |     | NULL    |                |
+| race   | varchar(150)     | NO   |     | NULL    |                |
++--------+------------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)</pre></p>
+<h4>Installing MySQL on Windows</h4>
 		<p>You can find an excellent step-by-step guide <a href="https://www.makeuseof.com/tag/install-mysql-windows/">
 			here.</p>
             </div></section>
