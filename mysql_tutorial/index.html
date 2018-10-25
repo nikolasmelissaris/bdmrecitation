@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114828137-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114828137-1');
+</script>
+
+
+
+			<meta charset='utf-8' /> 
+			<title>BDM Recitation</title>
+			<!-- link to main stylesheet --> 
+			<link rel="stylesheet" type="text/css" href="/bdmrecitation/css/main.css"> 
+			<link rel='stylesheet' href='/bdmrecitation/css/mobile.css' />
+			<link href='https://fonts.googleapis.com/css?family=Droid+Sans'
+              rel='stylesheet' />
+			<link rel='icon' type='image/png' href='/bdmrecitation/images/rbsicon.png' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		</head>
+		<body>
+			<img class='background' src='/bdmrecitation/images/rbs.jpeg' alt='The school.' />
+
+        <div class='credits-info'>
+            <span>i</span>
+
+            <div id='credits'>
+                This site was made with ❤️
+                in Westfield, NJ.<br/>
+
+		    Photo by <a href='https://www.prnewswire.com/news-releases/rutgers-business-school-to-host-community-roundtable-as-a-way-of-inspiring-private-public--partnerships-around-economic-development-social-change-300129499.html'>Cision</a>, 
+			   <br/>
+		    
+		    Many thanks to my buddy <a href='https://dionyziz.com/'>Dionysis</a> for letting me use his beautiful layout.
+            </div>
+        </div>
+
+        <section><div>
+          
+		<strong><h2>MySQL</h2></strong>
+		
+		<h4>What is MySQL?</h4>
+		
+		<p>SQL is a language that was specifically designed to make it easy for other programs to access 
+			data through databases. Programs that want the database software to handle the low-level 
+			work of managing data will simply use SQL to give the proper instuctions.</p>
+
+	<p>There are many databases that support the use of SQL to access their data, like MySQL and 
+		PostgreSQL. In other words, MySQL is just the brand of one database software, one of many. 
+		The same goes for PostgreSQL. These two databases are very popular among programs that run on 
+		websites (probably because they are free).
+		</p>
+		
+		<h4>Installing MySQL on macOS</h4>
+		<p>There is a great guide on how to install MySQL on your Mac 
+			<a href="https://medium.com/employbl/how-to-install-mysql-on-mac-osx-5b266cfab3b6">here</a>. 
+			It might be a different since the OS and MySQL versions are a bit older but this shouldn't 
+			pose a problem.</p>
+		
+		<p>Don't forget to add the mysql download to your path so that you can use the <code>mysql</code>
+			command from the command line.
+		If you are using bash for terminal (the default on OS X) you will need either the 
+			<code>~/.bashrc</code> file or <code>~/.bash_profile</code>. </p>
+		<p>Open the file with some text editor and add the following line:
+		<pre class="tty">export PATH=$PATH:/usr/local/mysql/bin</pre>
+		
+		Save it and then use the following command in your terminal:
+		<pre class="tty">$ <span class="ttytype">source ~/.bashrc</span></pre>
+		
+		After this, you can test it as follows:
+		<pre class="tty">$ <span class="ttytype">mysql --version</span>
+mysql  Ver 8.0.13 for macos10.14 on x86_64 (MySQL Community Server - GPL)</pre> </p>
+		
+		<h4>Installing MySQL on Windows</h4>
+		<p>You can find an excellent step-by-step guide <a href="https://www.makeuseof.com/tag/install-mysql-windows/">
+			here.</p>
+            </div></section>
+			
+			
+    </body>
+</html>
