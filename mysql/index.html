@@ -51,7 +51,7 @@
 		<h4>Connecting to the MySQL Server</h4>
 		
 		<p>After you have successfully installed mysql and made sure that you can just type:
-		<pre class="tty">$ <span = "ttytype">mysql -u root -p</span></pre>
+		<pre class="tty">$ <span class="ttytype">mysql -u root -p</span></pre>
 		and then type in the password that you chose during the installation.</p>
 		
 		<p>You should see something like this:
@@ -70,7 +70,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> </pre></p>
 
 			<p>To quit the server simply type:
-			<pre class="tty">mysql> <span = "ttytype">quit</span></pre> </p>
+			<pre class="tty">mysql> <span class="ttytype">quit</span></pre> </p>
 		
 		
 	<h4>Basic Operations</h4>
@@ -79,7 +79,7 @@ mysql> </pre></p>
 	you will find in detail what the SQL statements below do and what is their full syntax.</p>
 		
 	<p>To see which databases already exist we use <code>SHOW databases</code>:
-<pre class="tty">mysql> <span="ttytype">SHOW DATABASES;</span>
+<pre class="tty">mysql> <span class="ttytype">SHOW DATABASES;</span>
 +--------------------+
 | Database           |
 +--------------------+
@@ -97,7 +97,7 @@ mysql> </pre></p>
 Query OK, 1 row affected (0.02 sec)</pre></p>
 
 <p>We can see now if our database was created:
-<pre class="tty">mysql> <span="ttytype">SHOW DATABASES;</span>
+<pre class="tty">mysql> <span class="ttytype">SHOW DATABASES;</span>
 +------------------------+
 | Database               |
 +------------------------+
@@ -119,11 +119,11 @@ Database changed</pre></p>
 <p>We are now ready to create a table of the heroes in the Fellowship of the Ring:
 <pre class="tty">mysql> <span class="ttytype">CREATE TABLE heroes
 (
-  id              INT unsigned NOT NULL AUTO_INCREMENT, # Unique ID for the record
-  name            VARCHAR(150) NOT NULL,                # Name of the hero
-  weapon          VARCHAR(150) NOT NULL,                # Weapon of choice
-  race            VARCHAR(150) NOT NULL,                # Race of the hero
-  PRIMARY KEY     (id)                                  # Make the id the primary key
+	id        INT unsigned NOT NULL AUTO_INCREMENT,    # Unique ID for the record
+	name            VARCHAR(150) NOT NULL,             # Name of the hero
+	weapon          VARCHAR(150) NOT NULL,             # Weapon of choice
+	race            VARCHAR(150) NOT NULL,             # Race of the hero
+	PRIMARY KEY     (id)                               # Make the id the primary key
 );</span></pre></p>
 
 <p>The available data types you can use are explained in <a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">
@@ -151,12 +151,13 @@ Database changed</pre></p>
 
 <p>To add records to a table we use <code>INSERT...VALUES</code> statement:
 <pre class="tty">mysql> <span class="ttytype">INSERT INTO heroes (name, weapon, race) VALUES
-    -> ('Frodo', 'Sword', 'Hobbit'),
-    -> ('Sam', 'Sword', 'Hobbit'),
-    -> ('Gandalf', 'Staff', 'Istari'),
-    -> ('Gimli', 'Axe', 'Dwarf'),
-    -> ('Legolas', 'Bow', 'Elf'),
-    -> ('Aragorn', 'Sword','Man');</span>                                                                  Query OK, 6 rows affected (0.10 sec)
+-> ('Frodo', 'Sword', 'Hobbit'),
+-> ('Sam', 'Sword', 'Hobbit'),
+-> ('Gandalf', 'Staff', 'Istari'),
+-> ('Gimli', 'Axe', 'Dwarf'),
+-> ('Legolas', 'Bow', 'Elf'),
+-> ('Aragorn', 'Sword','Man');</span>
+Query OK, 6 rows affected (0.10 sec)
 Records: 6  Duplicates: 0  Warnings: 0</pre></p>
 
 <p>To retrieve records from a table we can use a <code>SELECT</code> statement, and “*” to get all columns:
@@ -208,7 +209,7 @@ mysql> <span class="ttytype">SELECT * FROM heroes;</span>
 Query OK, 0 rows affected (0.16 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-<pre class="tty">mysql> <span class="ttytype">DESCRIBE heroes;</span>
+mysql> <span class="ttytype">DESCRIBE heroes;</span>
 +--------+------------------+------+-----+---------+----------------+
 | Field  | Type             | Null | Key | Default | Extra          |
 +--------+------------------+------+-----+---------+----------------+
