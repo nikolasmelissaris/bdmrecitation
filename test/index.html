@@ -13,8 +13,10 @@
 			<meta charset='utf-8' />
 			<title>BDM Recitation</title>
 			<!-- link to main stylesheet -->
-			<link rel="stylesheet" type="text/css" href="/css/main.css">
-			<link rel='stylesheet' href='css/mobile.css' />
+			<!--<link rel="stylesheet" type="text/css" href="/css/main.css">-->
+			<!--<link rel='stylesheet' href='css/mobile.css' />-->
+			<script src="/bdmrecitation/highlight/highlight.pack.js"></script>
+			<script>hljs.initHighlightingOnLoad();</script>
 			<link href='https://fonts.googleapis.com/css?family=Droid+Sans'
               rel='stylesheet' />
 			<link rel='icon' type='image/png' href='/bdmrecitation/images/rbsicon.png' />
@@ -43,9 +45,19 @@
             <p><strong>Hey there.</strong> </p>
 		<p>This is a test area.
             </p>
-	
-		<h4October 11 - Intro to Python</h4>
-            	<h4>October 17 - Intro to Python (contd.)</h4>
+	<p><pre><code class="python">import pymysql
+
+# Open connection to the database
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
+cursor.execute("SELECT * FROM heroes WHERE weapon='Sword';")
+</code></pre></p>
+
+		
 	</div></section>
     </body>
 </html>
