@@ -23,7 +23,7 @@ span.ttytype {
     color: DarkGreen;
     font-family: monospace;
     font-weight: bold;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
 }
 
 body pre {
