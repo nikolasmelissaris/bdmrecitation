@@ -43,199 +43,41 @@
           
 		<strong><h2>MySQL</h2></strong>
 		
-		<h4>Pre-requisites</h4>
-		<p>If you haven't set up mysql on your computer, you need to go back to the 
-			<a href="https://nikolasmelissaris.github.io/bdmrecitation/">supplementary materials</a>
-		and follow the instructions.</p>
+		<h4>What is MySQL?</h4>
 		
-		<h4>Connecting to the MySQL Server</h4>
+		<p>SQL is a language that was specifically designed to make it easy for other programs to access 
+			data through databases. Programs that want the database software to handle the low-level 
+			work of managing data will simply use SQL to give the proper instuctions.</p>
+
+	<p>There are many databases that support the use of SQL to access their data, like MySQL and 
+		PostgreSQL. In other words, MySQL is just the brand of one database software, one of many. 
+		The same goes for PostgreSQL. These two databases are very popular among programs that run on 
+		websites (probably because they are free).
+		</p>
 		
-		<p>After you have successfully installed mysql and made sure that you can just type:
-		<pre class="tty">$ <span class="ttytype">mysql -u root -p</span></pre>
-		and then type in the password that you chose during the installation.</p>
+		<h4>Installing MySQL on macOS</h4>
+		<p>There is a great guide on how to install MySQL on your Mac 
+			<a href="https://medium.com/employbl/how-to-install-mysql-on-mac-osx-5b266cfab3b6">here</a>. 
+			It might be a different since the OS and MySQL versions are a bit older but this shouldn't 
+			pose a problem.</p>
 		
-		<p>You should see something like this:
-		<pre class="tty">Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 46
-Server version: 8.0.13 MySQL Community Server - GPL
-
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> </pre></p>
-
-			<p>To quit the server simply type:
-			<pre class="tty">mysql> <span class="ttytype">quit</span></pre> </p>
+		<p>Don't forget to add the mysql download to your path so that you can use the <code>mysql</code>
+			command from the command line.
+		If you are using bash for terminal (the default on OS X) you will need either the 
+			<code>~/.bashrc</code> file or <code>~/.bash_profile</code>. </p>
+		<p>Open the file with some text editor and add the following line:
+		<pre class="tty">export PATH=$PATH:/usr/local/mysql/bin</pre>
 		
+		Save it and then use the following command in your terminal:
+		<pre class="tty">$ <span class="ttytype">source ~/.bashrc</span></pre>
 		
-	<h4>Basic Operations</h4>
-	<p>We will show some basic operations with the MySQL server. 
-	In the <a href"https://dev.mysql.com/doc/refman/8.0/en/sql-syntax.html">SQL Statement Syntax</a> 
-	you will find in detail what the SQL statements below do and what is their full syntax.</p>
+		After this, you can test it as follows:
+		<pre class="tty">$ <span class="ttytype">mysql --version</span>
+mysql  Ver 8.0.13 for macos10.14 on x86_64 (MySQL Community Server - GPL)</pre> </p>
 		
-	<p>To see which databases already exist we use <code>SHOW databases</code>:
-<pre class="tty">mysql> <span class="ttytype">SHOW DATABASES;</span>
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| movies             |
-| mysql              |
-| performance_schema |
-| pets               |
-| sys                |
-+--------------------+
-6 rows in set (0.00 sec)</pre></p>
-		
-<p>To create an new database named fellowship_of_the ring we use <code>CREATE DATABASE fellowship_of_the_ring</code>:
-<pre class="tty">mysql> <span="ttytype">CREATE DATABASE fellowship_of_the_ring;</span>
-Query OK, 1 row affected (0.02 sec)</pre></p>
-
-<p>We can see now if our database was created:
-<pre class="tty">mysql> <span class="ttytype">SHOW DATABASES;</span>
-+------------------------+
-| Database               |
-+------------------------+
-| fellowship_of_the_ring |
-| information_schema     |
-| movies                 |
-| mysql                  |
-| performance_schema     |
-| pets                   |
-| sys                    |
-+------------------------+
-7 rows in set (0.00 sec)</pre></p>
-
-<p>We now want to create a table in the database we created. We can do that using 
-	<code>CREATE DATABASE fellowship_of_the_ring</code> but first we want to specify which database we will be using:
-<pre class="tty">mysql> <span class="ttytype"USE fellowship_of_the_ring</span>
-Database changed</pre></p>
-
-<p>We are now ready to create a table of the heroes in the Fellowship of the Ring:
-<pre class="tty">mysql> <span class="ttytype">CREATE TABLE heroes
-(
-	id           INT unsigned NOT NULL AUTO_INCREMENT,   # Unique ID for the record
-	name         VARCHAR(150) NOT NULL,             # Name of the hero
-	weapon       VARCHAR(150) NOT NULL,             # Weapon of choice
-	race         VARCHAR(150) NOT NULL,             # Race of the hero
-	PRIMARY KEY  (id)                               # Make the id the primary key
-);</span></pre></p>
-
-<p>The available data types you can use are explained in <a href="https://dev.mysql.com/doc/refman/8.0/en/data-types.html">
-	Data Types</a>.</p>
-<p>We can now check if the table has been created using the <code>SHOW tables</code> statement:
-<pre class="tty">mysql> <span class="ttytype">SHOW tables;</span>
-+----------------------------------+
-| Tables_in_fellowship_of_the_ring |
-+----------------------------------+
-| heroes                           |
-+----------------------------------+
-1 row in set (0.01 sec)</pre></p>
-
-<p>We use DESCRIBE to see information about the columns of a table:
-<pre class="tty">mysql> <span class="ttytype">DESCRIBE heroes;</span>
-+--------+------------------+------+-----+---------+----------------+
-| Field  | Type             | Null | Key | Default | Extra          |
-+--------+------------------+------+-----+---------+----------------+
-| id     | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| name   | varchar(150)     | NO   |     | NULL    |                |
-| weapon | varchar(150)     | NO   |     | NULL    |                |
-| race   | varchar(150)     | NO   |     | NULL    |                |
-+--------+------------------+------+-----+---------+----------------+
-4 rows in set (0.00 sec)</pre></p>
-
-<p>To add records to a table we use <code>INSERT...VALUES</code> statement:
-<pre class="tty">mysql> <span class="ttytype">INSERT INTO heroes (name, weapon, race) VALUES
--> ('Frodo', 'Sword', 'Hobbit'),
--> ('Sam', 'Sword', 'Hobbit'),
--> ('Gandalf', 'Staff', 'Istari'),
--> ('Gimli', 'Axe', 'Dwarf'),
--> ('Legolas', 'Bow', 'Elf'),
--> ('Aragorn', 'Sword','Man');</span>
-Query OK, 6 rows affected (0.10 sec)
-Records: 6  Duplicates: 0  Warnings: 0</pre></p>
-
-<p>To retrieve records from a table we can use a <code>SELECT</code> statement, and “*” to get all columns:
-<pre class="tty">mysql> <span class="ttytype">SELECT * FROM heroes;</span>
-+----+---------+--------+--------+
-| id | name    | weapon | race   |
-+----+---------+--------+--------+
-|  1 | Frodo   | Sword  | Hobbit |
-|  2 | Sam     | Sword  | Hobbit |
-|  3 | Gandalf | Staff  | Istari |
-|  4 | Gimli   | Axe    | Dwarf  |
-|  5 | Legolas | Bow    | Elf    |
-|  6 | Aragorn | Sword  | Man    |
-+----+---------+--------+--------+
-6 rows in set (0.00 sec)</pre></p>
-
-<p>We can select specific columns and rows by using the <code>WHERE</code> clause:
-<pre class="tty">mysql> <span class="ttytype">SELECT name FROM heroes WHERE weapon="Sword";</span>
-+---------+
-| name    |
-+---------+
-| Frodo   |
-| Sam     |
-| Aragorn |
-+---------+
-3 rows in set (0.00 sec)</pre></p>
-
-<p>To delete a record from a table we can use a <code>DELETE</code> statement to delete a record from a table:
-<pre class="tty">mysql> <span class="ttytype">DELETE FROM heroes WHERE race='Man';</span>
-Query OK, 1 row affected (0.04 sec)
-
-mysql> <span class="ttytype">SELECT * FROM heroes;</span>
-+----+---------+--------+--------+
-| id | name    | weapon | race   |
-+----+---------+--------+--------+
-|  1 | Frodo   | Sword  | Hobbit |
-|  2 | Sam     | Sword  | Hobbit |
-|  3 | Gandalf | Staff  | Istari |
-|  4 | Gimli   | Axe    | Dwarf  |
-|  5 | Legolas | Bow    | Elf    |
-+----+---------+--------+--------+
-5 rows in set (0.00 sec)</pre></p>
-
-<p>Let's say that we want to add a column that specifies the gender of each hero.
-	We can use a <code>ALTER TABLE...ADD</code> statement and (optionally) an <code>AFTER</code> 
-	clause to specify the location of the new column:
-	
-<pre class="tty">mysql> <span class="ttytype">ALTER TABLE heroes ADD gender CHAR(1) AFTER weapon;</span>
-Query OK, 0 rows affected (0.16 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-
-mysql> <span class="ttytype">DESCRIBE heroes;</span>
-+--------+------------------+------+-----+---------+----------------+
-| Field  | Type             | Null | Key | Default | Extra          |
-+--------+------------------+------+-----+---------+----------------+
-| id     | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| name   | varchar(150)     | NO   |     | NULL    |                |
-| weapon | varchar(150)     | NO   |     | NULL    |                |
-| gender | char(1)          | YES  |     | NULL    |                |
-| race   | varchar(150)     | NO   |     | NULL    |                |
-+--------+------------------+------+-----+---------+----------------+
-5 rows in set (0.00 sec)</pre></p>
-
-<p>To delete a column use <code>ALTER TABLE...DROP</code>:
-<pre class="tty">mysql> <span class="ttytype">ALTER TABLE heroes DROP gender;</span>
-Query OK, 0 rows affected (0.24 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-mysql> <span class="ttytype">DESCRIBE heroes;</span>
-+--------+------------------+------+-----+---------+----------------+
-| Field  | Type             | Null | Key | Default | Extra          |
-+--------+------------------+------+-----+---------+----------------+
-| id     | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
-| name   | varchar(150)     | NO   |     | NULL    |                |
-| weapon | varchar(150)     | NO   |     | NULL    |                |
-| race   | varchar(150)     | NO   |     | NULL    |                |
-+--------+------------------+------+-----+---------+----------------+
-4 rows in set (0.00 sec)</pre></p>
-
+		<h4>Installing MySQL on Windows</h4>
+		<p>You can find an excellent step-by-step guide <a href="https://www.makeuseof.com/tag/install-mysql-windows/">
+			here.</p>
             </div></section>
 			
 			
