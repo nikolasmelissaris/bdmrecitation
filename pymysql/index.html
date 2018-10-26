@@ -41,43 +41,69 @@
 
         <section><div>
           
-		<strong><h2>MySQL</h2></strong>
+		<strong><h2>PyMySQL</h2></strong>
 		
-		<h4>What is MySQL?</h4>
+		<h4>Pre-requisites</h4>
 		
-		<p>SQL is a language that was specifically designed to make it easy for other programs to access 
-			data through databases. Programs that want the database software to handle the low-level 
-			work of managing data will simply use SQL to give the proper instuctions.</p>
+		<p>If you haven't installed PyMySQL, head back to the
+		<a href="https://nikolasmelissaris.github.io/bdmrecitation/pymysql_intro/">supplementary material</a> to
+			 configure your system properly.</p>
 
-	<p>There are many databases that support the use of SQL to access their data, like MySQL and 
-		PostgreSQL. In other words, MySQL is just the brand of one database software, one of many. 
-		The same goes for PostgreSQL. These two databases are very popular among programs that run on 
-		websites (probably because they are free).
-		</p>
 		
-		<h4>Installing MySQL on macOS</h4>
-		<p>There is a great guide on how to install MySQL on your Mac 
-			<a href="https://medium.com/employbl/how-to-install-mysql-on-mac-osx-5b266cfab3b6">here</a>. 
-			It might be a different since the OS and MySQL versions are a bit older but this shouldn't 
-			pose a problem.</p>
+		<h4>PyMySQL Examples</h4>
+	<p>We will run some examples on the database we built before, the <code>fellowship_of_the_ring</code></p>
+		<p>Our first example will return all the information
+			of all the heroes that use swords. We will save it under <code>db_swords.py</code>.</p>
+		<p><pre class="tty">import pymysql
+
+# Open connection to the database
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
+cursor.execute("SELECT * FROM heroes WHERE weapon='Sword';")
+
+# Fetch all the rows using fetchall() method.
+data = cursor.fetchall()
+print(data)
+
+# disconnect from server
+db.close()</pre></p>
 		
-		<p>Don't forget to add the mysql download to your path so that you can use the <code>mysql</code>
-			command from the command line.
-		If you are using bash for terminal (the default on OS X) you will need either the 
-			<code>~/.bashrc</code> file or <code>~/.bash_profile</code>. </p>
-		<p>Open the file with some text editor and add the following line:
-		<pre class="tty">export PATH=$PATH:/usr/local/mysql/bin</pre>
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_swords.py</span>
+((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'))</pre>
 		
-		Save it and then use the following command in your terminal:
-		<pre class="tty">$ <span class="ttytype">source ~/.bashrc</span></pre>
+
+<p>For our second example, we will get just the names of all the heroes that are of the Hobbit race.
+	We will save it under <code>db_hobbits.py</code>.</p>
+<p><pre class="tty">import pymysql
+
+# Open connection to the database
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
+cursor.execute("SELECT names FROM heroes WHERE race='Hobbit';")
+
+# Fetch all the rows using fetchall() method.
+data = cursor.fetchall()
+print(data)
+
+# disconnect from server
+db.close()</pre></p>
 		
-		After this, you can test it as follows:
-		<pre class="tty">$ <span class="ttytype">mysql --version</span>
-mysql  Ver 8.0.13 for macos10.14 on x86_64 (MySQL Community Server - GPL)</pre> </p>
-		
-		<h4>Installing MySQL on Windows</h4>
-		<p>You can find an excellent step-by-step guide <a href="https://www.makeuseof.com/tag/install-mysql-windows/">
-			here.</p>
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_hobbits.py</span>
+(('Frodo',), ('Sam',))</pre></p>
+
+
+
+
             </div></section>
 			
 			
