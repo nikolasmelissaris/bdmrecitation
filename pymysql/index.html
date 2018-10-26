@@ -81,7 +81,7 @@ db.close()</code></pre></p>
 
 <p>For our second example, we will get just the names of all the heroes that are of the Hobbit race.
 	We will save it under <code>db_hobbits.py</code>.</p>
-<p><pre class="tty">import pymysql
+<p><pre class="tty"><code class="python">import pymysql
 
 # Open connection to the database
 db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
@@ -97,14 +97,14 @@ data = cursor.fetchall()
 print(data)
 
 # disconnect from server
-db.close()</pre></p>
+db.close()</code></pre></p>
 		
 <p>Now we simply run:
 <pre class="tty">$ <span class="ttytype">python3 db_hobbits.py</span>
 (('Frodo',), ('Sam',))</pre></p>
 
 <p>For our next example we will add a hero to the Fellowship. We will name the file <code>db_boromir.py</code></p>
-<p><pre class="tty">import pymysql
+<p><pre class="tty"><code class="python">import pymysql
 
 # Open database connection. Notice the autocommit. What is it doing there?
 db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring", autocommit=True)
@@ -126,7 +126,7 @@ heroes = cursor.fetchall()
 print(heroes)
 
 # disconnect from server
-db.close()</pre></p>
+db.close()</code></pre></p>
 
 <p>Now we simply run:
 <pre class="tty">$ <span class="ttytype">python3 db_boromir.py</span>
