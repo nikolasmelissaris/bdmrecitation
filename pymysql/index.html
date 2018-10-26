@@ -101,7 +101,35 @@ db.close()</pre></p>
 <pre class="tty">$ <span class="ttytype">python3 db_hobbits.py</span>
 (('Frodo',), ('Sam',))</pre></p>
 
+<p>For our next example we will add a hero to the Fellowship. We will name the file <code>db_boromir.py</code></p>
+<p><pre class="tty">import pymysql
 
+# Open database connection. Notice the autocommit. What is it doing there?
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring", autocommit=True)
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Create entry
+sql = """INSERT INTO heroes (name, weapon, race) VALUES
+('Boromir','Sword','Man')"""
+
+cursor.execute(sql)
+
+# Create query to check if all our heroes are in the table
+sql_ret = """SELECT * FROM heroes"""
+cursor.execute(sql_ret)
+heroes = cursor.fetchall()
+
+print(heroes)
+
+# disconnect from server
+db.close()</pre></p>
+
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_boromir.py</span>
+((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'), (3, 'Gandalf', 'Staff', 'Istari'), 
+(4, 'Gimli', 'Axe', 'Dwarf'), (5, 'Legolas', 'Bow', 'Elf'), (7, 'Boromir', 'Sword', 'Man'))</pre>
 
 
             </div></section>
