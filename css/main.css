@@ -9,7 +9,7 @@ small {
     font-size: x-small;
 }
 
-code {
+/*code {
     color: #010101;
     font-size: 95%;
     font-family: monospace;
@@ -17,7 +17,7 @@ code {
     margin: 0pc 0pc 0pc 0pc;
     padding: 0.1pc 0.2pc 0.2pc 0.2pc;
     background-color: #f5f5f5;
-}
+}*/
 
 span.ttytype {
     color: DarkGreen;
