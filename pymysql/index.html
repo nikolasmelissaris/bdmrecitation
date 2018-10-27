@@ -16,9 +16,9 @@
 			<title>BDM Recitation</title>
 			<!-- link to main stylesheet --> 
 			<link rel="stylesheet" type="text/css" href="/bdmrecitation/css/main.css">
-			<!--<script src="/bdmrecitation/highlight/highlight.pack.js"></script>
-			<script>hljs.initHighlightingOnLoad();</script>-->
-			<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true"></script>
+			<script src="/bdmrecitation/highlight/highlight.pack.js"></script>
+			<script>hljs.initHighlightingOnLoad();</script>
+	<!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true"></script>-->
 			<link rel='stylesheet' href='/bdmrecitation/css/mobile.css' />
 			<link href='https://fonts.googleapis.com/css?family=Droid+Sans'
               rel='stylesheet' />
@@ -57,7 +57,7 @@
 	<p>We will run some examples on the database we built before, the <code>fellowship_of_the_ring</code></p>
 		<p>Our first example will return all the information
 			of all the heroes that use swords. We will save it under <code>db_swords.py</code>.</p>
-		<p><pre class="tty"><pre class="prettyprint"><code>import pymysql
+		<p><pre class="tty"><code>import pymysql
 
 # Open connection to the database
 db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
@@ -73,7 +73,7 @@ data = cursor.fetchall()
 print(data)
 
 # disconnect from server
-db.close()</code></pre></pre></p>
+db.close()</code></pre></p>
 		
 <p>Now we simply run:
 <pre class="tty">$ <span class="ttytype">python3 db_swords.py</span>
