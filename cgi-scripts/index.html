@@ -98,64 +98,34 @@
 		This will not be exactly as you see it as I have added the lines that you need to type in.</p>
 		
 		
-<p>Now we simply run:
-<pre class="tty">$ <span class="ttytype">python3 db_swords.py</span>
-((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'))</pre>
-		
+<p>Now we will create a simple HTML file, named <code>input_name.html</code> that will prompt the user to write 
+	something in a box and will point to a
+	<code>form.py</code> script that lives in the webserver and it will do something with the information it gets from
+	<code>input_name.html</code>:
+	<pre class="tty"><code class="html">&lt;!doctype html>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Demo HTML file&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name="pyform" method="POST" action="http://localhost/cgi-bin/form.py"&gt;
+  &lt;input type="text" name="fname" /&gt;
+  &lt;input type="submit" name="submit" value="Submit" /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;<code></pre></p>
+	
+<p>Additionally, we'll create a <code>form.py</code> script to print what the user wrote in the box
+of <code>input_name.html</code>:
+<pre class="tty"><code class="python">#!/usr/local/bin/python3
+print("Content-Type: text/html")    
+print()
 
-<p>For our second example, we will get just the names of all the heroes that are of the Hobbit race.
-	We will save it under <code>db_hobbits.py</code>.</p>
-<p><pre class="tty"><code class="python">import pymysql
-
-# Open connection to the database
-db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
-
-# Start a cursor object using cursor() method
-cursor = db.cursor()
-
-# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
-cursor.execute("SELECT names FROM heroes WHERE race='Hobbit';")
-
-# Fetch all the rows using fetchall() method.
-data = cursor.fetchall()
-print (data)
-
-# disconnect from server
-db.close()</code></pre></p>
-		
-<p>Now we simply run:
-<pre class="tty">$ <span class="ttytype">python3 db_hobbits.py</span>
-(('Frodo',), ('Sam',))</pre></p>
-
-<p>For our next example we will add a hero to the Fellowship. We will name the file <code>db_boromir.py</code></p>
-<p><pre class="tty"><code class="python">import pymysql
-
-# Open database connection. Notice the autocommit. What is it doing there?
-db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring", autocommit=True)
-
-# Start a cursor object using cursor() method
-cursor = db.cursor()
-
-# Create entry
-sql = """INSERT INTO heroes (name, weapon, race) VALUES
-('Boromir','Sword','Man')"""
-
-cursor.execute(sql)
-
-# Create query to check if all our heroes are in the table
-sql_ret = """SELECT * FROM heroes"""
-cursor.execute(sql_ret)
-heroes = cursor.fetchall()
-
-print (heroes)
-
-# disconnect from server
-db.close()</code></pre></p>
-
-<p>Now we simply run:
-<pre class="tty">$ <span class="ttytype">python3 db_boromir.py</span>
-((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'), (3, 'Gandalf', 'Staff', 'Istari'), 
-(4, 'Gimli', 'Axe', 'Dwarf'), (5, 'Legolas', 'Bow', 'Elf'), (7, 'Boromir', 'Sword', 'Man'))</pre>
+import cgi,cgitb
+cgitb.enable() #for debugging
+form = cgi.FieldStorage()
+name = form.getvalue('fname')
+print("Name of the user is:",name)</code></pre>
 
 
             </div></section>
