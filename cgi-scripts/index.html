@@ -76,8 +76,7 @@
 		
 		<p>Find this line:
 			
-		<pre class="tty"><code class="bash">LoadModule cgi_module libexec/apache2/mod_cgi.so
-		</code></pre>
+		<pre class="tty"><code class="bash">LoadModule cgi_module libexec/apache2/mod_cgi.so</code></pre>
 		and uncomment it.</p>
 		<p>Apache needs to know that a particular directory is set aside for CGI programs. 
 		Apache will assume that every file in this directory 
@@ -89,13 +88,13 @@
 			<code>/Library/WebServer/CGI-Executables/</code>. You can change this to whatever folder you want
 			to use.</p>
 	<p>Next we want to find the following:
-		<pre class="tty"><code class="bash"><Directory "/Library/WebServer/CGI-Executables">
+<pre class="tty"><code class="bash"> &lt;Directory "/Library/WebServer/CGI-Executables"&gt;
     AllowOverride None
     Allow from all
     Options ExecCGI
     Require all granted
     AddHandler cgi-script .py
-</Directory></code></pre>
+&lt;/Directory&gt; </code></pre>
 		This will not be exactly as you see it as I have added the lines that you need to type in.</p>
 		
 		
