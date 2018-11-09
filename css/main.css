@@ -9,7 +9,7 @@ small {
     font-size: x-small;
 }
 
-a.return {
+a.return, a.return:link {
     margin: 0px 0px 0px 0px; 
     padding: 0px 0px 0px 0px;
     font-size: small;
