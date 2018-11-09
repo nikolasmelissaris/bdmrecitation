@@ -9,13 +9,6 @@ small {
     font-size: x-small;
 }
 
-a.return, a.return:link {
-    margin: 0px 0px 0px 0px; 
-    padding: 0px 0px 0px 0px;
-    font-size: small;
-    color: #D2B4DE;
-}
-
 code {
     color: #010101;
     font-size: 95%;
@@ -96,6 +89,12 @@ a, a:link, a:visited, a:hover {
 }
 a:hover {
     text-decoration: underline;
+}
+a.return, a.return:link {
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+    font-size: small;
+    color: #D2B4DE;
 }
 h1 {
     font-weight: normal;
