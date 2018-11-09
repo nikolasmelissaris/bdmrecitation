@@ -45,36 +45,59 @@
 
         <section><div>
           
-		<strong><h2>PyMySQL</h2></strong>
+		<strong><h2>CGI-Scripts</h2></strong>
 		
-		<h4>Pre-requisites</h4>
+		<h4>A word of caution</h4>
+		<p>I would like to remind you that it is very good practice to learn how to use a Virtual Machine in order to
+			learn in a sandbox environment. Many of the things that you will do when playing around with Apache will
+			require elevated priviledges, so be careful.</p>
 		
-		<p>If you haven't installed PyMySQL, head back to the
-		<a href="https://nikolasmelissaris.github.io/bdmrecitation/pymysql_intro/">supplementary material</a> to
-			 configure your system properly.</p>
+		<h4>Installing Apache</h4>
+		
+		<p>Students using <strong>Windows</strong> may download Apache from
+		<a href="https://www.apachelounge.com/download/">here.</a>
+		<strong>macOS</strong> ships with Apache so you probably don't need to do something for now.</p>
 
 		
-		<h4>PyMySQL Examples</h4>
-	<p>We will run some examples on the database we built before, the <code>fellowship_of_the_ring</code></p>
-		<p>Our first example will return all the information
-			of all the heroes that use swords. We will save it under <code>db_swords.py</code>.</p>
-		<p><pre class="tty"><code class="python">import pymysql
-
-# Open connection to the database
-db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
-
-# Start a cursor object using cursor() method
-cursor = db.cursor()
-
-# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
-cursor.execute("SELECT * FROM heroes WHERE weapon='Sword';")
-
-# Fetch all the rows using fetchall() method.
-data = cursor.fetchall()
-print (data)
-
-# disconnect from server
-db.close()</code></pre></p>
+		<h4>Configuring Apache</h4>
+	<p>We will edit some configuration files to have Apache serve content from the directory that you want. 
+		First you need to locate <code>httpd.conf</code> and open it with your favorite text editor. In order to edit
+		<code>httpd.conf</code> you need elevated priviledges so the easiest way it would be to open it using 
+		<code>sudo</code> on Mac:
+		<pre class="tty">$ <span class="ttytype">sudo vim httpd.conf</span></pre>
+		You can replace <code>vim</code> with the command to open your text editor. You need to be in the proper
+		directory, probably that would be <code>/etc/apache2</code>.</p>
+		
+		<p>On Windows, you need to <code>Run as Administrator</code> in order to be able to make changes to
+			<code>sudo</code>. The file will be in the directory that you unpacked when you downloaded Apache.</p>
+		
+		<p>In <code>httpd.conf</code> you will find <emph>a lot</emph> of lines. Some that are of interest to us are
+		the following:</p>
+		
+		<p>Find this line:
+			
+		<pre class="tty"><code class="bash">LoadModule cgi_module libexec/apache2/mod_cgi.so
+		</code></pre>
+		and uncomment it.</p>
+		<p>Apache needs to know that a particular directory is set aside for CGI programs. 
+		Apache will assume that every file in this directory 
+		is a CGI program, and will attempt to execute it, 
+			when that particular resource is requested by a client. This is done by 
+			<code>ScriptAlias</code>. For example by default in Mac there will be a line
+			<pre class="tty"><code class="bash">ScriptAliasMatch ^/cgi-bin/((?!(?i:webobjects)).*$) "/Library/WebServer/CGI-Executables/$1"</code></pre>
+			which means that there is a preset ScriptAlias for the <code>/cgi-bin/</code> to 
+			<code>/Library/WebServer/CGI-Executables/</code>. You can change this to whatever folder you want
+			to use.</p>
+	<p>Next we want to find the following:
+		<pre class="tty"><code class="bash"><Directory "/Library/WebServer/CGI-Executables">
+    AllowOverride None
+    Allow from all
+    Options ExecCGI
+    Require all granted
+    AddHandler cgi-script .py
+</Directory></code></pre>
+		This will not be exactly as you see it as I have added the lines that you need to type in.</p>
+		
 		
 <p>Now we simply run:
 <pre class="tty">$ <span class="ttytype">python3 db_swords.py</span>
