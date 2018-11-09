@@ -52,6 +52,7 @@ ul {
     padding: 0;
     list-style: none;
 }
+
 ul.b {
     margin: 15px 0 15px 15px;
     padding: 0;
@@ -71,12 +72,15 @@ ul li a {
     top: 0;
     transition: top 0.2s;
 }
+
 ul li a:hover {
     top: -5px;
 }
+
 ul li a:hover img {
     padding-bottom: 15px;
 }
+
 ul li img.zoom {
     top: -7px;
     height: 47px;
@@ -90,17 +94,20 @@ a, a:link, a:visited, a:hover {
 a:hover {
     text-decoration: underline;
 }
+
 a.return, a.return:link {
     margin: 0px 0px 0px 0px; 
     padding: 0px 0px 0px 0px;
     font-size: small;
     color: #D2B4DE;
 }
+
 h1 {
     font-weight: normal;
     margin: 0 0 0 160px;
     padding: 0 13px;
 }
+
 img.background {
     position: fixed;
     top: 0;
@@ -108,6 +115,7 @@ img.background {
     height: 100%;
     width: 50%;
 }
+
 section {
     position: fixed;
     left: 50%;
@@ -118,11 +126,13 @@ section {
     background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(253,253,253,1) 47%, rgba(251,251,251,1) 100%);
     box-shadow: 0 0 10px 0px black;
 }
+
 section div {
     padding: 20px;
     color: #333;
     font-weight: 400;
 }
+
 .avatar {
     width: 150px;
     height: 150px;
@@ -131,6 +141,7 @@ section div {
     border: 1px solid #ccc;
     box-shadow: 0 0 20px -5px black;
 }
+
 .avatar:hover {
     transform: scale(1.1);
     transition: transform 0.2s;
