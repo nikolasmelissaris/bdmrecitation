@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114828137-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-114828137-1');
+</script>
+
+
+
+			<meta charset='utf-8' /> 
+			<title>BDM Recitation</title>
+			<!-- link to main stylesheet --> 
+			<link rel="stylesheet" type="text/css" href="/bdmrecitation/css/main.css">
+			<!--<link rel="stylesheet" type="text/css" href="/bdmrecitation/highlight/styles/default.css">-->
+			<script src="/bdmrecitation/highlight/highlight.pack.js"></script>
+			<script>hljs.initHighlightingOnLoad();</script>
+	<!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?autorun=true"></script>-->
+			<link rel='stylesheet' href='/bdmrecitation/css/mobile.css' />
+			<link href='https://fonts.googleapis.com/css?family=Droid+Sans'
+              rel='stylesheet' />
+			<link rel='icon' type='image/png' href='/bdmrecitation/images/rbsicon.png' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		</head>
+		<body>
+			<img class='background' src='/bdmrecitation/images/rbs.jpeg' alt='The school.' />
+
+        <div class='credits-info'>
+            <span>i</span>
+
+            <div id='credits'>
+                This site was made with ❤️
+                in Westfield, NJ.<br/>
+
+		    Photo by <a href='https://www.prnewswire.com/news-releases/rutgers-business-school-to-host-community-roundtable-as-a-way-of-inspiring-private-public--partnerships-around-economic-development-social-change-300129499.html'>Cision</a>, 
+			   <br/>
+		    
+		    Many thanks to my buddy <a href='https://dionyziz.com/'>Dionysis</a> for letting me use his beautiful layout.
+            </div>
+        </div>
+
+        <section><div>
+          
+		<strong><h2>PyMySQL</h2></strong>
+		
+		<h4>Pre-requisites</h4>
+		
+		<p>If you haven't installed PyMySQL, head back to the
+		<a href="https://nikolasmelissaris.github.io/bdmrecitation/pymysql_intro/">supplementary material</a> to
+			 configure your system properly.</p>
+
+		
+		<h4>PyMySQL Examples</h4>
+	<p>We will run some examples on the database we built before, the <code>fellowship_of_the_ring</code></p>
+		<p>Our first example will return all the information
+			of all the heroes that use swords. We will save it under <code>db_swords.py</code>.</p>
+		<p><pre class="tty"><code class="python">import pymysql
+
+# Open connection to the database
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
+cursor.execute("SELECT * FROM heroes WHERE weapon='Sword';")
+
+# Fetch all the rows using fetchall() method.
+data = cursor.fetchall()
+print (data)
+
+# disconnect from server
+db.close()</code></pre></p>
+		
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_swords.py</span>
+((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'))</pre>
+		
+
+<p>For our second example, we will get just the names of all the heroes that are of the Hobbit race.
+	We will save it under <code>db_hobbits.py</code>.</p>
+<p><pre class="tty"><code class="python">import pymysql
+
+# Open connection to the database
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring" )
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Execute a SQL query using execute() method. This should return all the columns of heroes that use swords.
+cursor.execute("SELECT names FROM heroes WHERE race='Hobbit';")
+
+# Fetch all the rows using fetchall() method.
+data = cursor.fetchall()
+print (data)
+
+# disconnect from server
+db.close()</code></pre></p>
+		
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_hobbits.py</span>
+(('Frodo',), ('Sam',))</pre></p>
+
+<p>For our next example we will add a hero to the Fellowship. We will name the file <code>db_boromir.py</code></p>
+<p><pre class="tty"><code class="python">import pymysql
+
+# Open database connection. Notice the autocommit. What is it doing there?
+db = pymysql.connect("localhost","root","mypassword","fellowship_of_the_ring", autocommit=True)
+
+# Start a cursor object using cursor() method
+cursor = db.cursor()
+
+# Create entry
+sql = """INSERT INTO heroes (name, weapon, race) VALUES
+('Boromir','Sword','Man')"""
+
+cursor.execute(sql)
+
+# Create query to check if all our heroes are in the table
+sql_ret = """SELECT * FROM heroes"""
+cursor.execute(sql_ret)
+heroes = cursor.fetchall()
+
+print (heroes)
+
+# disconnect from server
+db.close()</code></pre></p>
+
+<p>Now we simply run:
+<pre class="tty">$ <span class="ttytype">python3 db_boromir.py</span>
+((1, 'Frodo', 'Sword', 'Hobbit'), (2, 'Sam', 'Sword', 'Hobbit'), (3, 'Gandalf', 'Staff', 'Istari'), 
+(4, 'Gimli', 'Axe', 'Dwarf'), (5, 'Legolas', 'Bow', 'Elf'), (7, 'Boromir', 'Sword', 'Man'))</pre>
+
+
+            </div></section>
+			
+			
+    </body>
+</html>
