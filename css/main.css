@@ -9,6 +9,13 @@ small {
     font-size: x-small;
 }
 
+p.return {
+    margin: 0px 0px 0px 0px; 
+    padding: 0px 0px 0px 0px;
+    font-size: small;
+    color: #D2B4DE;
+}
+
 code {
     color: #010101;
     font-size: 95%;
