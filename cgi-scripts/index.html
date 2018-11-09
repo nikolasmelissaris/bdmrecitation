@@ -50,7 +50,7 @@
 		<h4>A word of caution</h4>
 		<p>I would like to remind you that it is very good practice to learn how to use a Virtual Machine in order to
 			learn in a sandbox environment. Many of the things that you will do when playing around with Apache will
-			require elevated priviledges, so be careful.</p>
+			require elevated privileges, so be careful.</p>
 		
 		<h4>Installing Apache</h4>
 		
@@ -79,7 +79,7 @@
 		<pre class="tty"><code class="bash">LoadModule cgi_module libexec/apache2/mod_cgi.so</code></pre>
 		and uncomment it.</p>
 		<p>Apache needs to know that a particular directory is set aside for CGI programs. 
-		Apache will assume that every file in this directory 
+		It will assume that every file in this directory 
 		is a CGI program, and will attempt to execute it, 
 			when that particular resource is requested by a client. This is done by 
 			<code>ScriptAlias</code>. For example by default in Mac there will be a line
@@ -87,6 +87,8 @@
 			which means that there is a preset ScriptAlias for the <code>/cgi-bin/</code> to 
 			<code>/Library/WebServer/CGI-Executables/</code>. You can change this to whatever folder you want
 			to use.</p>
+		<p>If in Windows you can't find this specific file, don't worry. Just set the ScriptAlias to your
+			working directory and then just add the appropriate lines using the folder that you chose.</p>
 	<p>Next we want to find the following:
 <pre class="tty"><code class="bash"> &lt;Directory "/Library/WebServer/CGI-Executables"&gt;
     AllowOverride None
@@ -95,7 +97,15 @@
     Require all granted
     AddHandler cgi-script .py
 &lt;/Directory&gt; </code></pre>
-		This will not be exactly as you see it as I have added the lines that you need to type in.</p>
+		This will not be exactly as you see it as I have added the lines that you need to type in.
+		Windows user could (for example) start with:
+		<pre class="tty"><code class="bash"> &lt;Directory "/path/to/whatever/folder/you/are/using"&gt;
+AllowOverride None
+Allow from all
+Options ExecCGI
+Require all granted
+AddHandler cgi-script .py
+&lt;/Directory&gt; </code></pre></p>
 		
 		
 <p>Now we will create a simple HTML file, named <code>input_name.html</code> that will prompt the user to write 
