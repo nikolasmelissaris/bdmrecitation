@@ -95,7 +95,7 @@ a:hover {
     text-decoration: underline;
 }
 
-a.return, a.return:link {
+a.return, a.return:link, a.return:visited, a.return:hover {
     margin: 0px 0px 0px 0px; 
     padding: 0px 0px 0px 0px;
     font-size: small;
